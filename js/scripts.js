@@ -12,7 +12,7 @@ $(function() {
       scrollTime: 600,          // how long (in ms) the animation takes
       activeClass: 'active',    // class given to the active nav element
       onPageChange: null,       // function(pageIndex) that is called when page is changed
-      topOffset: -80            // offste (in px) for fixed top navigation
+      topOffset: -40            // offste (in px) for fixed top navigation
     });
 
     // navbar scrolling background
@@ -179,31 +179,31 @@ $(window).on("load",function (){
 
     });
 
-    // contact form validator
-    $('#contact-form').validator();
+    // // contact form validator
+    // $('#contact-form').validator();
 
-    $('#contact-form').on('submit', function (e) {
-        if (!e.isDefaultPrevented()) {
-            var url = "contact.php";
+    // $('#contact-form').on('submit', function (e) {
+    //     if (!e.isDefaultPrevented()) {
+    //         var url = "contact.php";
 
-            $.ajax({
-                type: "POST",
-                url: url,
-                data: $(this).serialize(),
-                success: function (data)
-                {
-                    var messageAlert = 'alert-' + data.type;
-                    var messageText = data.message;
+    //         $.ajax({
+    //             type: "POST",
+    //             url: url,
+    //             data: $(this).serialize(),
+    //             success: function (data)
+    //             {
+    //                 var messageAlert = 'alert-' + data.type;
+    //                 var messageText = data.message;
 
-                    var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
-                    if (messageAlert && messageText) {
-                        $('#contact-form').find('.messages').html(alertBox);
-                        $('#contact-form')[0].reset();
-                    }
-                }
-            });
-            return false;
-        }
-    });
+    //                 var alertBox = '<div class="alert ' + messageAlert + ' alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>' + messageText + '</div>';
+    //                 if (messageAlert && messageText) {
+    //                     $('#contact-form').find('.messages').html(alertBox);
+    //                     $('#contact-form')[0].reset();
+    //                 }
+    //             }
+    //         });
+    //         return false;
+    //     }
+    // });
 
 });
